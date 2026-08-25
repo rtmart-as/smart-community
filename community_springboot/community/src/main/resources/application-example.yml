@@ -1,0 +1,44 @@
+# ============================================================
+# 配置模板（脱敏版）
+# 使用方法：复制本文件为 application.yml，替换 ****** 为真实配置。
+# 真实配置文件已被 .gitignore 排除，不会提交到仓库。
+# ============================================================
+
+server:
+  port: 8181
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/community?serverTimezone=GMT%2B8&characterEncoding=utf8&useUnicode=true&useSSL=false
+    username: root
+    password: ******
+  jackson:
+    time-zone: GMT+8
+    date-format: yyyy-MM-dd HH:mm:ss
+  redis:
+    open: true
+    database: 1
+    host: localhost
+    port: 6379
+
+jwt:
+  secret: ******
+  expire: 86400000
+  subject: door
+
+upload:
+  face: D:/community/upload/face/
+  excel: D:/community/upload/excel/
+  urlPrefix: http://localhost:8181/
+
+# 腾讯云人脸识别 / 车牌识别（secretId / secretKey 已脱敏）
+plateocr:
+  secretId: ******
+  secretKey: ******
+  serverIp: iai.tencentcloudapi.com
+  area: ap-guangzhou
+  groupId: testGroup
+  personIdPre:
+  used: true
+  passPercent: 80
